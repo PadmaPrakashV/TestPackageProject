@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="TestPackage1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{CB72F022-35B1-4B83-8043-BDCA50C12B07}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{72817D98-68A8-41C1-BEC1-FE79CD3615CC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -282,7 +282,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="10"
+                      length="20"
                       lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[NewColumn]"
                       name="NewColumn"
                       truncationRowDisposition="FailComponent">
@@ -291,13 +291,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">"New Column"</property>
+                          name="Expression">"New Column: Notation"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">"New Column"</property>
+                          name="FriendlyExpression">"New Column: Notation"</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -417,7 +417,7 @@
                     <inputColumn
                       refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[NewColumn]"
                       cachedDataType="wstr"
-                      cachedLength="10"
+                      cachedLength="20"
                       cachedName="NewColumn"
                       externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[NewColumn]"
                       lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[NewColumn]" />
@@ -702,11 +702,18 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="151,42"
           Id="Package\Data Flow Task"
           TopLeft="260,113" />
+        <AnnotationLayout
+          Text="Prakash: Added notation"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="159,60"
+          Id="d151a323-e2d1-4c88-b22f-08bf51c79de1"
+          TopLeft="463,111" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -716,6 +723,10 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="261,67" />
+        <NodeLayout
           Size="172,42"
           Id="Package\Data Flow Task\Flat File Destination"
           TopLeft="248,246" />
@@ -723,10 +734,6 @@
           Size="154,42"
           Id="Package\Data Flow Task\Derived Column"
           TopLeft="257,157" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="261,67" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="335,109">
