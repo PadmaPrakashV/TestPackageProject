@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="TestPackage1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{77682D48-400B-4431-983F-1652E837E737}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{628E43BB-640F-4A24-99BF-59AF37B852AF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -52,7 +52,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FTPFileName"
-              DTS:DTSID="{69073727-FA03-4689-84DA-499F87F982FB}"
+              DTS:DTSID="{75D01B0D-ED98-4882-AC67-5A25B65CCFF5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -61,7 +61,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FTPFileLocation"
-              DTS:DTSID="{70B4665E-4CEC-4D0C-ABD6-60B00A030E61}"
+              DTS:DTSID="{F3E4786A-6E48-40E3-902A-D7DB71644E22}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -69,7 +69,7 @@
               DTS:DataType="11"
               DTS:TextQualified="True"
               DTS:ObjectName="IsProcessed"
-              DTS:DTSID="{ABE69900-0F9A-40DE-A17A-77BF6086DF9D}"
+              DTS:DTSID="{4BD2C6C1-C915-472B-AF67-0BE05752C8E4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -77,7 +77,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="DataFileTypeID"
-              DTS:DTSID="{BB54FC41-B3CA-48F9-A743-8135C4AB1558}"
+              DTS:DTSID="{549304DE-CE38-481A-A9A2-2BBF93F3B1F2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -85,16 +85,25 @@
               DTS:DataType="135"
               DTS:TextQualified="True"
               DTS:ObjectName="CreatedDate"
-              DTS:DTSID="{DB56441B-2531-485E-B13A-B3D904C349E5}"
+              DTS:DTSID="{CCAA471E-AAC5-4105-89BB-BCD8A198AAFE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="13"
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="SecondColumn"
-              DTS:DTSID="{52CFE40E-C7A6-47A7-91FE-17D09C2580C8}"
+              DTS:DTSID="{0A9E928D-E8B1-4D4E-A467-81511D7FC690}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ThirdColumn"
+              DTS:DTSID="{5890A9DB-A279-440F-8E87-37B9110A4EB9}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -204,6 +213,29 @@
                           name="FriendlyExpression">"Padma Prakash"</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[ThirdColumn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="8"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[ThirdColumn]"
+                      name="ThirdColumn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"DnA Team"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"DnA Team"</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -304,6 +336,13 @@
                       cachedName="SecondColumn"
                       externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SecondColumn]"
                       lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[SecondColumn]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[ThirdColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="ThirdColumn"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ThirdColumn]"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[ThirdColumn]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -336,6 +375,11 @@
                       dataType="wstr"
                       length="13"
                       name="SecondColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ThirdColumn]"
+                      dataType="wstr"
+                      length="8"
+                      name="ThirdColumn" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -588,13 +632,13 @@
           Id="Package\Data Flow Task\OLE DB Source"
           TopLeft="261,67" />
         <NodeLayout
-          Size="172,42"
-          Id="Package\Data Flow Task\Flat File Destination"
-          TopLeft="248,246" />
-        <NodeLayout
           Size="154,42"
           Id="Package\Data Flow Task\Derived Column"
           TopLeft="257,157" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Data Flow Task\Flat File Destination"
+          TopLeft="248,246" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="335,109">
