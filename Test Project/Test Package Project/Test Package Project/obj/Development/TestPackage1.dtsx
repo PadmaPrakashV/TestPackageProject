@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="TestPackage1"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{628E43BB-640F-4A24-99BF-59AF37B852AF}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{9005A779-4A3D-4D7A-BC4D-AEAEF1AF169A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         DTS:Name="ConnectionString">@[User::vSQLSource]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DATADEVPP\CLEFDBINSTANCE;Initial Catalog=CLEF_ETL_CONFIG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DATADEVDR\CLEFDBINSTANCE;Initial Catalog=CLEF_ETL_CONFIG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -52,7 +52,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FTPFileName"
-              DTS:DTSID="{75D01B0D-ED98-4882-AC67-5A25B65CCFF5}"
+              DTS:DTSID="{6C780F42-A669-4EF5-B2A5-9336DD0CA903}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -61,7 +61,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FTPFileLocation"
-              DTS:DTSID="{F3E4786A-6E48-40E3-902A-D7DB71644E22}"
+              DTS:DTSID="{CA1AF661-6105-4A41-B3CB-F82B3765334A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -69,7 +69,7 @@
               DTS:DataType="11"
               DTS:TextQualified="True"
               DTS:ObjectName="IsProcessed"
-              DTS:DTSID="{4BD2C6C1-C915-472B-AF67-0BE05752C8E4}"
+              DTS:DTSID="{DC186781-2C8D-44A5-95A0-C5D580E08F2B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -77,7 +77,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="DataFileTypeID"
-              DTS:DTSID="{549304DE-CE38-481A-A9A2-2BBF93F3B1F2}"
+              DTS:DTSID="{7AA6AC02-9AA4-4276-A3D6-09B78D27F461}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -85,7 +85,7 @@
               DTS:DataType="135"
               DTS:TextQualified="True"
               DTS:ObjectName="CreatedDate"
-              DTS:DTSID="{CCAA471E-AAC5-4105-89BB-BCD8A198AAFE}"
+              DTS:DTSID="{26A15EDE-CD91-4983-A69F-AA328BCA31BA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -94,16 +94,25 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="SecondColumn"
-              DTS:DTSID="{0A9E928D-E8B1-4D4E-A467-81511D7FC690}"
+              DTS:DTSID="{62F47DAB-6F12-42B4-9795-D5F094C3644E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="8"
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ThirdColumn"
-              DTS:DTSID="{5890A9DB-A279-440F-8E87-37B9110A4EB9}"
+              DTS:DTSID="{C6C43AE4-1847-41CB-94B2-632893A8036D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstColumn"
+              DTS:DTSID="{D86FBE7D-BFE5-448F-93A9-161913386120}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -127,7 +136,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vSQLSource">
       <DTS:VariableValue
-        DTS:DataType="8">Data Source=DATADEVPP\CLEFDBINSTANCE;Initial Catalog=CLEF_ETL_CONFIG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+        DTS:DataType="8">Data Source=DATADEVDR\CLEFDBINSTANCE;Initial Catalog=CLEF_ETL_CONFIG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -234,6 +243,29 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">"DnA Team"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FirstColumn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="6"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FirstColumn]"
+                      name="FirstColumn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Dinesh"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Dinesh"</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -343,6 +375,13 @@
                       cachedName="ThirdColumn"
                       externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ThirdColumn]"
                       lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[ThirdColumn]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[FirstColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="FirstColumn"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FirstColumn]"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FirstColumn]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -380,6 +419,11 @@
                       dataType="wstr"
                       length="8"
                       name="ThirdColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FirstColumn]"
+                      dataType="wstr"
+                      length="6"
+                      name="FirstColumn" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -628,39 +672,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="261,67" />
+          Size="172,42"
+          Id="Package\Data Flow Task\Flat File Destination"
+          TopLeft="248,246" />
         <NodeLayout
           Size="154,42"
           Id="Package\Data Flow Task\Derived Column"
           TopLeft="257,157" />
         <NodeLayout
-          Size="172,42"
-          Id="Package\Data Flow Task\Flat File Destination"
-          TopLeft="248,246" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="335,109">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48"
-              Start="0,0"
-              End="0,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="150,42"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="261,67" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="334,199">
@@ -675,6 +697,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="335,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
